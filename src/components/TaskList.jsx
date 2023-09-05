@@ -2,7 +2,7 @@ import PropTypes from 'prop-types'
 import TaskItem from "./TaskItem"
 
 
-function TaskList({tasks}) {
+function TaskList({ tasks, handleDelete}) {
   if(!tasks || tasks.length === 0) return (
     <p>No task yet</p>
   )
@@ -10,7 +10,7 @@ function TaskList({tasks}) {
   return (
     <div className='task-list'>
       {tasks.map(task => (
-        <TaskItem key={task.id} task={task} />
+        <TaskItem key={task.id} task={task} handleDelete={handleDelete} />
       ))}
     </div>
   )
