@@ -2,16 +2,17 @@ import { motion, AnimatePresence } from 'framer-motion'
 import { useContext } from 'react'
 import TaskItem from './TaskItem'
 import TaskContext from '../context/TaskContext'
+import Spinner from './shared/Spinner'
 
 
 function TaskList() {
-  const {tasks} = useContext(TaskContext)
+  const {tasks, isLoading} = useContext(TaskContext)
 
-  if(!tasks || tasks.length === 0) return (
+  if(!isLoading && (!tasks || tasks.length === 0)) return (
     <p>No task yet</p>
   )
 
-  return (
+  return isLoading ? <Spinner /> : (
     <div className='task-list'>
       <AnimatePresence>
         {tasks.map(task => (
