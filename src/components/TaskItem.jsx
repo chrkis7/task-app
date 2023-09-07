@@ -1,15 +1,21 @@
 //Set state with useState function
-import { FaTimes } from 'react-icons/fa'
+import { FaTimes, FaEdit } from 'react-icons/fa'
 import PropTypes from 'prop-types'
-import Card from "./shared/Card"
+import { useContext } from 'react'
+import TaskContext from '../context/TaskContext'
+import Card from './shared/Card'
 
-function TaskItem({ task, handleDelete }) {
+function TaskItem({ task }) {
+  const { deleteTask, editTask } = useContext(TaskContext)
 
   return (
     <Card>
       <div className='num-display'>{task.priority}</div>
-      <button onClick={()=>handleDelete(task.id)} className='close'>
+      <button onClick={()=>deleteTask(task.id)} className='close'>
         <FaTimes color='white' />
+      </button>
+      <button onClick={()=>editTask(task)} className='edit'>
+        <FaEdit color='white' />
       </button>
       <div className='text-display'>
         {task.text}

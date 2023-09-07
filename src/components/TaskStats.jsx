@@ -1,7 +1,10 @@
-import PropTypes from 'prop-types'
+import { useContext } from 'react';
+import TaskContext from '../context/TaskContext';
 
 
-function TaskStats({ tasks }) {
+function TaskStats() {
+  const {tasks} = useContext(TaskContext)
+
   let avg = tasks.reduce((acc, cur) => acc + cur.priority, 0) / tasks.length;
   avg = avg.toFixed(1).replace(/\.0+$/, '')
 
@@ -11,10 +14,6 @@ function TaskStats({ tasks }) {
       <h4>Average of severities: {isNaN(avg) ? 0 : avg} </h4>
     </div>
   )
-}
-
-TaskStats.propTypes = {
-  tasks: PropTypes.array.isRequired,
 }
 
 export default TaskStats

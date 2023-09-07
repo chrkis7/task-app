@@ -62,7 +62,7 @@ header {
 .rating li,
 .num-display {
   position: relative;
-  background: #f4f4f4;
+  background: #ff6a95;
   width: 50px;
   height: 50px;
   padding: 10px;
@@ -85,9 +85,13 @@ header {
   cursor: pointer;
 }
 
-.rating li:hover,
-.num-display {
+.rating li:hover {
   background: #603FEF;
+  color: #fff;
+}
+
+.num-display {
+  background: #ff6a95;
   color: #fff;
 }
 
@@ -156,11 +160,11 @@ input:focus {
 }
 
 .btn-primary {
-  background-color: #202142;
+  background-color: #603FEF;
 }
 
 .btn-secondary {
-  background: #603FEF;
+  background-color: #202142;
 }
 
 .btn:hover {
@@ -182,14 +186,14 @@ input:focus {
 .message {
   padding-top: 10px;
   text-align: center;
-  color: rebeccapurple;
+  color: rgba(240,255,240);
 }
 
 /* FIX: Remove position: absolute to keep about icon at the bottom of the
  * document */
 .about-link {
   display: flex;
-  justify-content: flex-end;
+  justify-content: left;
 }
 
 /* FIX: Remove position: absolute to keep about icon at the bottom of the
