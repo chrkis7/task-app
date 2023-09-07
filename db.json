@@ -1,0 +1,29 @@
+{
+  "tasks": [
+    {
+      "id": 1,
+      "priority": 8,
+      "text": "Example text with id 1"
+    },
+    {
+      "id": 2,
+      "priority": 9,
+      "text": "Example text with id 1"
+    },
+    {
+      "id": 3,
+      "priority": 10,
+      "text": "Example text with id 1"
+    },
+    {
+      "priority": "2",
+      "text": "Example text with id 1",
+      "id": 4
+    },
+    {
+      "text": "Example text with id 1",
+      "priority": 7,
+      "id": 5
+    }
+  ]
+}
