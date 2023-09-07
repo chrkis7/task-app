@@ -1,6 +1,7 @@
 //Create a functional component
 //impt is a shortcut to bring in PropTypes
 import PropTypes from 'prop-types'
+import AboutIconLink from './AboutIconLink'
 
 function Header({ text, bgColor, textColor }) {
   const HeaderStyles = {
@@ -13,6 +14,7 @@ function Header({ text, bgColor, textColor }) {
       <div className='container'>
         <h2>{text}</h2>
       </div>
+      <AboutIconLink />
     </header>
   )
 }

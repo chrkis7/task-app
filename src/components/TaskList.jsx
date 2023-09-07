@@ -1,29 +1,40 @@
-import PropTypes from 'prop-types'
-import TaskItem from "./TaskItem"
+import { motion, AnimatePresence } from 'framer-motion'
+import { useContext } from 'react'
+import TaskItem from './TaskItem'
+import TaskContext from '../context/TaskContext'
 
 
-function TaskList({tasks}) {
+function TaskList() {
+  const {tasks} = useContext(TaskContext)
+
   if(!tasks || tasks.length === 0) return (
     <p>No task yet</p>
   )
 
   return (
     <div className='task-list'>
-      {tasks.map(task => (
-        <TaskItem key={task.id} task={task} />
-      ))}
+      <AnimatePresence>
+        {tasks.map(task => (
+          <motion.div 
+            key={task.id}
+            initial={{opacity: 0}}
+            animate={{opacity: 1}}
+            exit={{opacity: 0}}
+          >
+            <TaskItem key={task.id} task={task} />
+          </motion.div>
+        ))}
+      </AnimatePresence>
     </div>
   )
-}
 
-TaskList.propTypes = {
-  tasks: PropTypes.arrayOf(
-    PropTypes.shape({
-      id: PropTypes.number.isRequired,
-      priority: PropTypes.number.isRequired,
-      text: PropTypes.string.isRequired,
-    })
-  )
+  // return (
+  //   <div className='task-list'>
+  //     {tasks.map(task => (
+  //       <TaskItem key={task.id} task={task} handleDelete={handleDelete} />
+  //     ))}
+  //   </div>
+  // )
 }
 
 export default TaskList
